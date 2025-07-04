@@ -14,4 +14,5 @@ public interface ProdutoRepository {
     List<Produto> findByAllProdutos();
     void editaProduto(Produto produto);
     void deleteById(Produto produto);
+    void deleteAll();
 }

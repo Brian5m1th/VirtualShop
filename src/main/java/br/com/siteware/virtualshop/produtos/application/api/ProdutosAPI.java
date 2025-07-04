@@ -30,4 +30,8 @@ public interface ProdutosAPI {
     @DeleteMapping("/{idProduto}")
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
     void deletaProduto(@PathVariable UUID idProduto);
+
+    @DeleteMapping
+    @ResponseStatus(code = HttpStatus.NO_CONTENT)
+    void deletaTodosProdutos();
 }

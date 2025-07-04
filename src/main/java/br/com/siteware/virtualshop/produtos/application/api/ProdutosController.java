@@ -53,4 +53,11 @@ public class ProdutosController implements ProdutosAPI {
         produtoService.deletaProduto(idProduto);
         log.info("[finish] ProdutosController - deletaProduto");
     }
+
+    @Override
+    public void deletaTodosProdutos() {
+        log.info("[start] ProdutosController - deletaTodosProdutos");
+        produtoService.limparTodosProdutos();
+        log.info("[finish] ProdutosController - deletaTodosProdutos");
+    }
 }

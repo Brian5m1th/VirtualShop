@@ -15,4 +15,5 @@ public interface ProdutoService {
     List<ProdutoListResponse> listaTodosProdutos();
     void alteraProduto(UUID idProduto, ProdutoAlteracaoRequest produtoAlteracaoRequest);
     void deletaProduto(UUID idProduto);
+    void limparTodosProdutos();
 }

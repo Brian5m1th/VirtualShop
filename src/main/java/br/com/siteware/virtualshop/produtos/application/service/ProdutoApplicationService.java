@@ -68,4 +68,11 @@ public class ProdutoApplicationService implements ProdutoService {
         produtoRepository.deleteById(produto);
         log.info("[finish] ProdutoApplicationService - deletaProduto");
     }
+
+    @Override
+    public void limparTodosProdutos() {
+        log.info("[start] ProdutoApplicationService - limparTodosProdutos");
+        produtoRepository.deleteAll();
+        log.info("[finish] ProdutoApplicationService - limparTodosProdutos");
+    }
 }
