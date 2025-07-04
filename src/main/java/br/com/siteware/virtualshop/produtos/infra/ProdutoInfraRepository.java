@@ -33,4 +33,13 @@ public class ProdutoInfraRepository implements ProdutoRepository {
             throw APIException.build(HttpStatus.BAD_REQUEST, "Tarefa já cadastrada", e);
         }
     }
+
+    @Override
+    public Produto listaProdutoPeloId(UUID idProduto) {
+        log.info("[start] ProdutoInfraRepository - listaProdutoPeloId");
+        Produto produto = produtoSpringJPARepository.findByIdProduto(idProduto)
+                .orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND, "Produto não encontrado"));
+        log.info("[finish] ProdutoInfraRepository - listaProdutoPeloId");
+        return produto;
+    }
 }

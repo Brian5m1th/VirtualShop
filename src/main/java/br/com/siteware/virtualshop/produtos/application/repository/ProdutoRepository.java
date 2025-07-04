@@ -9,4 +9,5 @@ import java.util.UUID;
 public interface ProdutoRepository {
     Integer countProdutosPeloIdProdutos(UUID idProduto);
     void salva(Produto novoProduto);
+    Produto listaProdutoPeloId(UUID idProduto);
 }
