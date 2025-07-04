@@ -56,4 +56,16 @@ public class ProdutoApplicationService implements ProdutoService {
         produtoRepository.editaProduto(produto);
         log.info("[finish] ProdutoApplicationService - alteraProduto");
     }
+
+    @Override
+    public void deletaProduto(UUID idProduto) {
+        log.info("[start] ProdutoApplicationService - deletaProduto");
+        Produto produto = produtoRepository.listaProdutoPeloId(idProduto);
+        if (produto == null) {
+            log.error("Produto com ID {} não encontrado", idProduto);
+            throw new IllegalArgumentException("Produto não encontrado");
+        }
+        produtoRepository.deleteById(produto);
+        log.info("[finish] ProdutoApplicationService - deletaProduto");
+    }
 }

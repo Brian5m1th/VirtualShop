@@ -60,4 +60,11 @@ public class ProdutoInfraRepository implements ProdutoRepository {
         produtoSpringJPARepository.save(produto);
         log.info("[finish] ProdutoInfraRepository - editaProduto");
     }
+
+    @Override
+    public void deleteById(Produto produto) {
+        log.info("[start] ProdutoInfraRepository - deleteById");
+        produtoSpringJPARepository.delete(produto);
+        log.info("[finish] ProdutoInfraRepository - deleteById");
+    }
 }
