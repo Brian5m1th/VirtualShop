@@ -1,6 +1,7 @@
 package br.com.siteware.virtualshop.produtos.application.service;
 
 import br.com.siteware.virtualshop.produtos.application.api.ProdutoIdResponse;
+import br.com.siteware.virtualshop.produtos.application.api.ProdutoListResponse;
 import br.com.siteware.virtualshop.produtos.application.api.ProdutoRequest;
 import br.com.siteware.virtualshop.produtos.application.repository.ProdutoRepository;
 import br.com.siteware.virtualshop.produtos.domain.Produto;
@@ -8,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -19,7 +21,7 @@ public class ProdutoApplicationService implements ProdutoService {
     @Override
     public ProdutoIdResponse salvaProduto(ProdutoRequest produtoRequest) {
         log.info("[start] ProdutoApplicationService - salvaProduto");
-        Integer numeroDeProdutos = produtoRepository.countProdutosPeloIdProdutos(produtoRequest.getIdProduto());
+        Integer numeroDeProdutos = produtoRepository.countProdutosPeloCodigo(produtoRequest.getCodigoProduto());
         Produto novoProduto = new Produto(produtoRequest, numeroDeProdutos);
         produtoRepository.salva(novoProduto);
         log.info("[finish] ProdutoApplicationService - salvaProduto");
@@ -32,5 +34,13 @@ public class ProdutoApplicationService implements ProdutoService {
         Produto produto = produtoRepository.listaProdutoPeloId(idProduto);
         log.info("[finish] ProdutoApplicationService - listaProdutos");
         return produto;
+    }
+
+    @Override
+    public List<ProdutoListResponse> listaTodosProdutos() {
+        log.info("[start] ProdutoApplicationService - listaTodosProdutos");
+        List<Produto> produto = produtoRepository.findByAllProdutos();
+        log.info("[finish] ProdutoApplicationService - listaTodosProdutos");
+        return ProdutoListResponse.converte(produto);
     }
 }

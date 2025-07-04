@@ -15,4 +15,5 @@ public class ProdutoRequest {
     private String nome;
     private BigDecimal preco;
     private PromocaoTipo promocao;
+    private UUID codigoProduto;
 }

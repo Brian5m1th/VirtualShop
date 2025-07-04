@@ -7,6 +7,6 @@ import java.util.Optional;
 import java.util.UUID;
 
 public interface ProdutoSpringJPARepository extends JpaRepository<Produto, UUID> {
-    Integer countProdutosByIdProduto(UUID idProduto);
+    Integer countByCodigoProduto(UUID codigoProduto);
     Optional<Produto> findByIdProduto(UUID idProduto);
 }

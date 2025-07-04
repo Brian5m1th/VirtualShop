@@ -4,9 +4,9 @@ import br.com.siteware.virtualshop.produtos.application.service.ProdutoService;
 import br.com.siteware.virtualshop.produtos.domain.Produto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -29,5 +29,13 @@ public class ProdutosController implements ProdutosAPI {
         Produto produto = produtoService.listaProdutos(idProduto);
         log.info("[finish] ProdutosController - getListaProdutos");
         return new ProdutoDetalhadoResponse(produto);
+    }
+
+    @Override
+    public List<ProdutoListResponse> getListaTodosProdutos() {
+        log.info("[start] ProdutosController - getListaTodosProdutos");
+        List<ProdutoListResponse> produtos = produtoService.listaTodosProdutos();
+        log.info("[finish] ProdutosController - getListaTodosProdutos");
+        return produtos;
     }
 }

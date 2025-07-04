@@ -9,6 +9,7 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.UUID;
 
 @Repository
@@ -17,10 +18,12 @@ import java.util.UUID;
 public class ProdutoInfraRepository implements ProdutoRepository {
     private final ProdutoSpringJPARepository produtoSpringJPARepository;
 
+
+
     @Override
-    public Integer countProdutosPeloIdProdutos(UUID idProduto) {
+    public Integer countProdutosPeloCodigo(UUID codigoProduto) {
         log.info("[start] ProdutoInfraRepository - countProdutosPeloIdProdutos");
-        Integer numerosDeProdutos =  produtoSpringJPARepository.countProdutosByIdProduto(idProduto);
+        Integer numerosDeProdutos =  produtoSpringJPARepository.countByCodigoProduto(codigoProduto);
         log.info("[finish] ProdutoInfraRepository - countProdutosPeloIdProdutos");
         return numerosDeProdutos;
     }
@@ -41,5 +44,13 @@ public class ProdutoInfraRepository implements ProdutoRepository {
                 .orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND, "Produto não encontrado"));
         log.info("[finish] ProdutoInfraRepository - listaProdutoPeloId");
         return produto;
+    }
+
+    @Override
+    public List<Produto> findByAllProdutos() {
+        log.info("[start] ProdutoInfraRepository - findByAllProdutos");
+        List<Produto> produtos = produtoSpringJPARepository.findAll();
+        log.info("[finish] ProdutoInfraRepository - findByAllProdutos");
+        return produtos;
     }
 }

@@ -4,6 +4,7 @@ import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -18,4 +19,7 @@ public interface ProdutosAPI {
     @ResponseStatus(code = HttpStatus.OK)
     ProdutoDetalhadoResponse getListaProdutos(@PathVariable UUID idProduto);
 
+    @GetMapping
+    @ResponseStatus(code = HttpStatus.OK)
+    List<ProdutoListResponse> getListaTodosProdutos();
 }
