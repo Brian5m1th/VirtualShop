@@ -1,0 +1,35 @@
+package br.com.siteware.virtualshop.produtos.domain;
+
+import br.com.siteware.virtualshop.produtos.application.api.ProdutoRequest;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotBlank;
+import lombok.*;
+
+import java.math.BigDecimal;
+import java.util.UUID;
+
+@ToString
+@Builder
+@Getter
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
+@Entity
+public class Produto {
+    @Id
+    private UUID idProduto;
+    @NotBlank
+    private String nome;
+    private BigDecimal preco;
+    private PromocaoTipo promocao;
+    private Integer quantidadeDeProdutos;
+
+    public Produto(ProdutoRequest produtoRequest, Integer numeroDeProdutos) {
+        this.idProduto = UUID.randomUUID();
+        this.nome = produtoRequest.getNome();
+        this.preco = produtoRequest.getPreco();
+        this.promocao = produtoRequest.getPromocao() != null ? produtoRequest.getPromocao() : PromocaoTipo.NENHUMA;
+        this.quantidadeDeProdutos = numeroDeProdutos + 1;
+    }
+
+}
