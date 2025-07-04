@@ -53,4 +53,11 @@ public class ProdutoInfraRepository implements ProdutoRepository {
         log.info("[finish] ProdutoInfraRepository - findByAllProdutos");
         return produtos;
     }
+
+    @Override
+    public void editaProduto(Produto produto) {
+        log.info("[start] ProdutoInfraRepository - editaProduto");
+        produtoSpringJPARepository.save(produto);
+        log.info("[finish] ProdutoInfraRepository - editaProduto");
+    }
 }

@@ -38,4 +38,12 @@ public class ProdutosController implements ProdutosAPI {
         log.info("[finish] ProdutosController - getListaTodosProdutos");
         return produtos;
     }
+
+    @Override
+    public void patchAlteraProduto(UUID idProduto, ProdutoAlteracaoRequest produtoAlteracaoRequest) {
+        log.info("[start] ProdutosController - alteraProduto");
+        log.info("Alterando produto com ID: {}", idProduto);
+        produtoService.alteraProduto(idProduto, produtoAlteracaoRequest);
+        log.info("[finish] ProdutosController - alteraProduto");
+    }
 }

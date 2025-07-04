@@ -12,4 +12,5 @@ public interface ProdutoRepository {
     void salva(Produto novoProduto);
     Produto listaProdutoPeloId(UUID idProduto);
     List<Produto> findByAllProdutos();
+    void editaProduto(Produto produto);
 }

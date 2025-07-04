@@ -1,5 +1,6 @@
 package br.com.siteware.virtualshop.produtos.application.service;
 
+import br.com.siteware.virtualshop.produtos.application.api.ProdutoAlteracaoRequest;
 import br.com.siteware.virtualshop.produtos.application.api.ProdutoIdResponse;
 import br.com.siteware.virtualshop.produtos.application.api.ProdutoListResponse;
 import br.com.siteware.virtualshop.produtos.application.api.ProdutoRequest;
@@ -12,4 +13,5 @@ public interface ProdutoService {
     ProdutoIdResponse salvaProduto(ProdutoRequest produtoRequest);
     Produto listaProdutos(UUID idProduto);
     List<ProdutoListResponse> listaTodosProdutos();
+    void alteraProduto(UUID idProduto, ProdutoAlteracaoRequest produtoAlteracaoRequest);
 }

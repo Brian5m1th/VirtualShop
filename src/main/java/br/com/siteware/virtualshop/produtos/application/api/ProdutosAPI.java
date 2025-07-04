@@ -22,4 +22,9 @@ public interface ProdutosAPI {
     @GetMapping
     @ResponseStatus(code = HttpStatus.OK)
     List<ProdutoListResponse> getListaTodosProdutos();
+
+    @PatchMapping("/{idProduto}/edita")
+    @ResponseStatus(code = HttpStatus.NO_CONTENT)
+    void patchAlteraProduto(@PathVariable UUID idProduto, @RequestBody @Valid ProdutoAlteracaoRequest produtoAlteracaoRequest);
+
 }
