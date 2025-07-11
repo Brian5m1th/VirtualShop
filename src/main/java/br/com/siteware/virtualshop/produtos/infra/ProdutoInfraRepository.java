@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @Repository
@@ -17,8 +18,6 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class ProdutoInfraRepository implements ProdutoRepository {
     private final ProdutoSpringJPARepository produtoSpringJPARepository;
-
-
 
     @Override
     public Integer countProdutosPeloCodigo(UUID codigoProduto) {
@@ -38,7 +37,7 @@ public class ProdutoInfraRepository implements ProdutoRepository {
     }
 
     @Override
-    public Produto listaProdutoPeloId(UUID idProduto) {
+    public Produto buscaProdutos(UUID idProduto) {
         log.info("[start] ProdutoInfraRepository - listaProdutoPeloId");
         Produto produto = produtoSpringJPARepository.findByIdProduto(idProduto)
                 .orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND, "Produto não encontrado"));
@@ -62,9 +61,9 @@ public class ProdutoInfraRepository implements ProdutoRepository {
     }
 
     @Override
-    public void deleteById(Produto produto) {
+    public void deleteById(UUID idProduto) {
         log.info("[start] ProdutoInfraRepository - deleteById");
-        produtoSpringJPARepository.delete(produto);
+        produtoSpringJPARepository.deleteById(idProduto);
         log.info("[finish] ProdutoInfraRepository - deleteById");
     }
 

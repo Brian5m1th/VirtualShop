@@ -9,12 +9,9 @@ import lombok.*;
 import java.math.BigDecimal;
 import java.util.UUID;
 
-@ToString
-@Builder
-@Getter
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
-@AllArgsConstructor(access = AccessLevel.PRIVATE)
+@Data
 @Entity
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class Produto {
     @Id
     private UUID idProduto;
