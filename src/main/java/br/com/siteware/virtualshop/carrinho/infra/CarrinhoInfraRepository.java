@@ -1,6 +1,5 @@
 package br.com.siteware.virtualshop.carrinho.infra;
 
-import br.com.siteware.virtualshop.carrinho.application.api.CarrinhoRequest;
 import br.com.siteware.virtualshop.carrinho.application.repository.CarrinhoRepository;
 import br.com.siteware.virtualshop.carrinho.domain.Carrinho;
 import lombok.RequiredArgsConstructor;

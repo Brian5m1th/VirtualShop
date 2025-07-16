@@ -1,11 +1,11 @@
 package br.com.siteware.virtualshop.carrinho.application.api;
 
-import jakarta.persistence.Id;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 import java.util.UUID;
+
 @Data
 public class ItemCarrinhoRequest {
 

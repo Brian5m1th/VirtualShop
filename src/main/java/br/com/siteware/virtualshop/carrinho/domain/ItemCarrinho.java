@@ -1,6 +1,5 @@
 package br.com.siteware.virtualshop.carrinho.domain;
 
-import br.com.siteware.virtualshop.carrinho.application.api.ItemCarrinhoRequest;
 import br.com.siteware.virtualshop.produtos.domain.PromocaoTipo;
 import jakarta.persistence.Embeddable;
 import lombok.AccessLevel;
@@ -8,7 +7,6 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.math.BigDecimal;
 import java.util.UUID;
 
 @Data

@@ -2,9 +2,10 @@ package br.com.siteware.virtualshop.carrinho.domain;
 
 import br.com.siteware.virtualshop.carrinho.application.api.CarrinhoRequest;
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AccessLevel;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import java.math.BigDecimal;
 import java.util.List;
 import java.util.UUID;
 
@@ -28,7 +29,6 @@ public class Carrinho {
 
     public Carrinho(List<ItemCarrinho> itens) {
         this.itens = itens;
-
     }
 
 }
