@@ -11,5 +11,4 @@ import java.util.List;
 @Builder
 public class CarrinhoRequest {
     List<ItemCarrinho> itens;
-    private BigDecimal ValorTotal;
 }

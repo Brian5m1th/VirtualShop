@@ -14,6 +14,7 @@ import java.util.UUID;
 @Table
 public class Carrinho {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID idCarrinho;
     @Embedded
     @ElementCollection

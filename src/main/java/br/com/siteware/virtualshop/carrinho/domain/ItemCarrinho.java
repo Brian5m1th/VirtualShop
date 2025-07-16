@@ -19,13 +19,13 @@ public class ItemCarrinho {
     private UUID idProduto;
     private PromocaoTipo promocao;
     private Integer quantidade;
-    private BigDecimal subtotal;
 
-    public ItemCarrinho(ItemCarrinhoRequest itemRequest) {
+    public ItemCarrinho(ItemCarrinho itemRequest) {
         this.idProduto = itemRequest.getIdProduto();
         this.promocao = promocao != null ? promocao : PromocaoTipo.NENHUMA; /*depois tem q criar um metodo */
         this.quantidade = itemRequest.getQuantidade();
     }
+
 }
 
 
