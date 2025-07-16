@@ -18,7 +18,7 @@ import java.util.UUID;
 public class ItemCarrinho {
     private UUID idProduto;
     private PromocaoTipo promocao;
-    private Integer quantidade;
+    private int quantidade;
     private BigDecimal subtotal;
 
     public ItemCarrinho(ItemCarrinhoRequest itemRequest) {
