@@ -8,7 +8,7 @@ import java.util.UUID;
 public interface ProdutoRepository {
     Integer countProdutosPeloCodigo(UUID codigoProduto);
     void salva(Produto novoProduto);
-    Produto buscaProdutos(UUID idProduto);
+    Produto buscaProduto(UUID idProduto);
     List<Produto> findByAllProdutos();
     void editaProduto(Produto produto);
     void deleteById(UUID idProduto);

@@ -32,7 +32,7 @@ public class ProdutoApplicationService implements ProdutoService {
     @Override
     public Produto buscaProduto(UUID idProduto) {
         log.info("[start] ProdutoApplicationService - listaProdutos");
-        Produto produto = produtoRepository.buscaProdutos(idProduto);
+        Produto produto = produtoRepository.buscaProduto(idProduto);
         log.info("[finish] ProdutoApplicationService - listaProdutos");
         return produto;
     }
@@ -48,7 +48,7 @@ public class ProdutoApplicationService implements ProdutoService {
     @Override
     public void alteraProduto(UUID idProduto, ProdutoAlteracaoRequest produtoAlteracaoRequest) {
         log.info("[start] ProdutoApplicationService - alteraProduto");
-        Produto produto = produtoRepository.buscaProdutos(idProduto);
+        Produto produto = produtoRepository.buscaProduto(idProduto);
         produtoRepository.editaProduto(produto);
         log.info("[finish] ProdutoApplicationService - alteraProduto");
     }

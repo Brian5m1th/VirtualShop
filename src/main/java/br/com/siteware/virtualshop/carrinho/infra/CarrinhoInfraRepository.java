@@ -6,6 +6,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Repository;
 
+import java.util.UUID;
+
 
 @Repository
 @Log4j2
@@ -19,5 +21,14 @@ public class CarrinhoInfraRepository implements CarrinhoRepository {
         Carrinho carrinhoSalvo = carrinhoSpringJPARepository.save(carrinho);
         log.info("[finish] CarrinhoInfraRepository - salvaCarrinho");
         return carrinhoSalvo;
+    }
+
+    @Override
+    public Carrinho buscaCarrinho(UUID idCarrinho) {
+        log.info("[start] CarrinhoInfraRepository - buscaCarrinho");
+        Carrinho carrinho = carrinhoSpringJPARepository.findById(idCarrinho)
+                .orElseThrow(() -> new RuntimeException("Carrinho não encontrado com o ID: " + idCarrinho));
+        log.info("[finish] CarrinhoInfraRepository - buscaCarrinho");
+        return carrinho;
     }
 }

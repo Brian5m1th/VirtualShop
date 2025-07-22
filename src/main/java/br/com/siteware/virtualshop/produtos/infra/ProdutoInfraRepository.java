@@ -37,7 +37,7 @@ public class ProdutoInfraRepository implements ProdutoRepository {
     }
 
     @Override
-    public Produto buscaProdutos(UUID idProduto) {
+    public Produto buscaProduto(UUID idProduto) {
         log.info("[start] ProdutoInfraRepository - listaProdutoPeloId");
         Produto produto = produtoSpringJPARepository.findByIdProduto(idProduto)
                 .orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND, "Produto não encontrado"));

@@ -1,5 +1,6 @@
 package br.com.siteware.virtualshop.carrinho.application.api;
 
+import br.com.siteware.virtualshop.carrinho.domain.Carrinho;
 import lombok.Builder;
 import lombok.Data;
 

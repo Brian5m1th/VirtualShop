@@ -16,5 +16,5 @@ public class ItemCarrinhoRequest {
     @Min(value = 1, message = "A quantidade deve ser no mínimo 1")
     private Integer quantidade;
 
-
+    private boolean promocaoAtiva;
 }

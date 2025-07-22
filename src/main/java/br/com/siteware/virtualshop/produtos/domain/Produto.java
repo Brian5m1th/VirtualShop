@@ -27,7 +27,7 @@ public class Produto {
         this.nome = produtoRequest.getNome();
         this.preco = produtoRequest.getPreco();
         this.promocao = produtoRequest.getPromocao() != null ? produtoRequest.getPromocao() : PromocaoTipo.NENHUMA;
-        this.codigoProduto = UUID.fromString("0eaba875-2fbb-45b2-984f-a167064b760d");
+        this.codigoProduto = produtoRequest.getCodigoProduto();
         this.quantidadeDeProdutos = (numeroDeProdutos != null ? numeroDeProdutos : 0) + 1;
     }
 
