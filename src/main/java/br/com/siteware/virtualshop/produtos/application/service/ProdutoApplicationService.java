@@ -30,9 +30,9 @@ public class ProdutoApplicationService implements ProdutoService {
     }
 
     @Override
-    public Produto listaProdutos(UUID idProduto) {
+    public Produto buscaProduto(UUID idProduto) {
         log.info("[start] ProdutoApplicationService - listaProdutos");
-        Produto produto = produtoRepository.listaProdutoPeloId(idProduto);
+        Produto produto = produtoRepository.buscaProduto(idProduto);
         log.info("[finish] ProdutoApplicationService - listaProdutos");
         return produto;
     }
@@ -48,11 +48,7 @@ public class ProdutoApplicationService implements ProdutoService {
     @Override
     public void alteraProduto(UUID idProduto, ProdutoAlteracaoRequest produtoAlteracaoRequest) {
         log.info("[start] ProdutoApplicationService - alteraProduto");
-        Produto produto = produtoRepository.listaProdutoPeloId(idProduto);
-        if (produto == null) {
-            log.error("Produto com ID {} não encontrado", idProduto);
-            throw new IllegalArgumentException("Produto não encontrado");
-        }
+        Produto produto = produtoRepository.buscaProduto(idProduto);
         produtoRepository.editaProduto(produto);
         log.info("[finish] ProdutoApplicationService - alteraProduto");
     }
@@ -60,12 +56,7 @@ public class ProdutoApplicationService implements ProdutoService {
     @Override
     public void deletaProduto(UUID idProduto) {
         log.info("[start] ProdutoApplicationService - deletaProduto");
-        Produto produto = produtoRepository.listaProdutoPeloId(idProduto);
-        if (produto == null) {
-            log.error("Produto com ID {} não encontrado", idProduto);
-            throw new IllegalArgumentException("Produto não encontrado");
-        }
-        produtoRepository.deleteById(produto);
+        produtoRepository.deleteById(idProduto);
         log.info("[finish] ProdutoApplicationService - deletaProduto");
     }
 

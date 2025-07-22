@@ -17,7 +17,7 @@ public interface ProdutosAPI {
 
     @GetMapping("/{idProduto}")
     @ResponseStatus(code = HttpStatus.OK)
-    ProdutoDetalhadoResponse getListaProdutos(@PathVariable UUID idProduto);
+    ProdutoDetalhadoResponse getBuscaProduto(@PathVariable UUID idProduto);
 
     @GetMapping
     @ResponseStatus(code = HttpStatus.OK)
